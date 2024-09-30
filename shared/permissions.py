@@ -13,4 +13,4 @@ class FeatureAccessPermissions(BasePermission):
                 return getattr(feature, feature_name, False)
             except Feature.DoesNotExist:
                 return False
-        return True  
+        return False
