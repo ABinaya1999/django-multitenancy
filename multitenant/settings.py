@@ -40,6 +40,7 @@ SHARED_APPS = [
     'django.contrib.admin',
     'django.contrib.messages',
     'django.contrib.staticfiles',  
+    'rest_framework'
 ]
 TENANT_APPS = [
     'client',

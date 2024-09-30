@@ -8,6 +8,7 @@ django = "*"
 dj-database-url = "*"
 django-tenants = "*"
 psycopg2-binary = "*"
+django-rest-framework = "*"
 
 [dev-packages]
 
