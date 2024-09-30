@@ -33,7 +33,13 @@ ALLOWED_HOSTS = []
 
 SHARED_APPS = [
     'django_tenants',
-    'shared'
+    'shared',
+    'django.contrib.contenttypes',
+    'django.contrib.auth',
+    'django.contrib.sessions',
+    'django.contrib.admin',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',  
 ]
 TENANT_APPS = [
     'client',
@@ -44,7 +50,7 @@ TENANT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',  
 ]
-INSTALLED_APPS = SHARED_APPS + TENANT_APPS
+INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
 MIDDLEWARE = [
     'django_tenants.middleware.main.TenantMainMiddleware',
@@ -134,4 +140,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TENANT_MODEL = "shared.Client"
 TENANT_DOMAIN_MODEL = "shared.Domain"
+SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
 PUBLIC_SCHEMA_URLCONF = "shared.urls"
