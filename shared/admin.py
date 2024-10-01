@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
+from django_tenants.utils import schema_context
 from shared.models import Client, Domain, Feature
+from client.models import Employee
 
 
 class FeatureAdmin(admin.ModelAdmin):
     list_display = ('tenant', 'employee', 'department')
+    
     
     
 class TenantAdminSite(admin.AdminSite):
@@ -22,3 +25,4 @@ class TenantAdminSite(admin.AdminSite):
         
         
 tenant_admin_site = TenantAdminSite(name="tenant_admin_site")
+
